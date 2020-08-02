@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <form method="POST" action="/api/genres">
+                    {{> genretypes genres_types = this.genres_types selected_value = this.genre.Type}}
+                    <div class="form-group">
+                        <label for="Id">Id</label>
+                        {{#if  this.genre.Id}} 
+                            <input type="text" class="form-control" readonly="true" name="Id" id="Id" value="{{ this.genre.Id }}" placeholder="Enter Id" required>                 
+                        {{else}}
+                            <input type="text" class="form-control" name="Id" id="Id" value="{{ this.genre.Id }}" placeholder="Enter Id" required>                 
+                        {{/if}}
+                    </div>
+                    <div class="form-group">
+                        <label for="Name">Films Name</label>
+                        <input type="text" class="form-control" name="Name" id="Name" value="{{ this.genre.Name }}" placeholder="Enter Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Email">Email address</label>
+                        <input type="email" class="form-control" name="Email" id="Email" value="{{ this.genre.Email }}" aria-describedby="emailHelp"
+                            placeholder="Email" required>
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                            else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="Description">Description</label>
+                        <textarea class="form-control" name="Description" id="Description" rows="6">{{ this.genre.Description }}</textarea>
+                    </div>
+                    <div class="mx-auto">
+                        <button type="submit" class="btn btn-primary text-right">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- <form method="POST" class="form-inline my-2 my-lg-0">
+						<div class="input-group input-group-sm">
+							<select id="genre_type" >
+                                {{#each genres_types}}
+                                    <option value={{this.id}}>{{this.name}}</option>
+                                {{/each}}
+                            </select>
+							<input type="text" class="form-control" aria-label="Name" aria-describedby="inputGroup-sizing-sm" placeholder="Search...">
+							<div class="input-group-append">
+								<button type="button" class="btn btn-secondary btn-number">
+									<i class="fa fa-search"></i>
+								</button>
+							</div>
+						</div>
+						<a class="btn btn-success btn-sm ml-3" href="/api/genres">
+							<i class="fa fa-shopping-cart"></i> Cart
+							<span class="badge badge-light">3</span>
+						</a>
+					</form> --}}

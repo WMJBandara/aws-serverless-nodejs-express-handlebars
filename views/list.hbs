@@ -1,0 +1,56 @@
+<h1>{{ title }}</h1>
+<p> {{ metatitle }}</p>
+<section>
+    <header class="major">
+        <h2>Genres</h2>
+    </header>
+
+    <div class="well">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Description</th>
+                    <th style="width: 50px;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each genres}}
+                <tr>
+                    <td>{{this.Type}}</td>
+                    <td>{{this.Id}}</td>
+                    <td>{{this.Name}}</td>
+                    <td>{{this.Email}}</td>
+                    <td>{{this.Description}}</td>
+                    <td>
+                        <a href={{link '/api/genres/edit' this.Type this.Id}}><i class="glyphicon glyphicon-edit"></i></a>
+                        <a href="#" data-href={{link '/api/genres/delete' this.Type this.Id}} data-target="#myModal"
+                            role="button" data-toggle="modal">
+                            <i class="glyphicon glyphicon-remove"></i></a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3 id="myModalLabel">Delete Confirmation</h3>
+                </div>
+                <div class="modal-body">
+                    <p class="error-text">Are you sure you want to delete the user?</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                    <button class="btn btn-danger btn-ok" data-dismiss="modal">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

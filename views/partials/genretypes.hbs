@@ -1,0 +1,13 @@
+<div class="form-group">
+    <label for="Type">Genre Type </label>
+    <select class="form-control" name="Type" id="Type">
+        <option value="">Please select a genre {{this.selected_value}}</option>
+        {{#each genres_types}}
+        <option 
+        {{#ifCond ../selected_value '==' this.id}}
+            selected 
+        {{/ifCond}}
+        value={{this.id}}>{{this.name}}</option>
+        {{/each}}
+    </select>
+</div>
